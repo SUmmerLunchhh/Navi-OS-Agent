@@ -1,7 +1,9 @@
 # Navi-OS-Agent
 
 > *"Let's all love lain."*
-
+<p align="center">
+<img src="https://github.com/SUmmerLunchhh/AAA-/blob/main/imgs/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202026-09-27%20174114.png" height="300">
+</p>
 **Navi-OS-Agent** 是一款向经典的 《Serial Experiments Lain》（玲音）中 **Navi** 操作系统致敬的桌面 AI 智能体项目。本项目基于 Python、PyQt6 构建，融合了语音识别、TTS 语音合成以及动态本地代码执行能力。
 
 ---
