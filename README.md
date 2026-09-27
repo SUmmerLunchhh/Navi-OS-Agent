@@ -1,6 +1,6 @@
 <p align="center">
 #Navi-OS-Agent
-  > *"Let's all love lain."*
+> *"Let's all love lain."*
 </p>
 
 <p align="center">
