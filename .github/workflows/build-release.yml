@@ -1,0 +1,52 @@
+name: Build and Release Navi
+
+on:
+  push:
+    tags:
+      - 'v*'  
+  workflow_dispatch: 
+
+jobs:
+  build:
+    runs-on: windows-latest  
+
+    permissions:
+      contents: write        
+
+    steps:
+      - name: 检出代码
+        uses: actions/checkout@v4
+
+      - name: 设置 Python 环境
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+
+      - name: 升级 pip 并安装项目依赖
+        run: |
+          python -m pip install --upgrade pip
+          pip install pyinstaller PyQt6 PyQt6-SVG openai SpeechRecognition pyttsx3
+
+      - name: 使用 PyInstaller 打包为独立文件夹
+        run: |
+          pyinstaller --noconsole --onedir --icon=Navi.ico --add-data "bg.png;." --add-data "ah3ha-80cp2.svg;." main.py
+
+      - name: 压缩打包产物
+        run: |
+          cd dist
+          Compress-Archive -Path main -DestinationPath ..\Navi-OS-Agent-Windows.zip
+
+      - name: 自动创建 Release 并上传文件
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ github.ref_name }} 
+          name: "Navi-OS-Agent ${{ github.ref_name }}"
+          prerelease: true 
+          body: |
+            ### Navi-OS-Agent 自动构建版本
+            * 运行平台：Windows
+            * 包含完整静态资源 (`bg.png`, `ah3ha-80cp2.svg`)
+          files: |
+            Navi-OS-Agent-Windows.zip
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
