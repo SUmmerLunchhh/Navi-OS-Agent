@@ -146,7 +146,7 @@ class AIWorker(QThread):
         return {'success': success, 'output': output.strip(), 'error': error_info}
 
 
-# 2. 核心圆角与高性能毛玻璃容器
+# 2. 核心圆角与毛玻璃容器
 class RoundedContainerWidget(QWidget):
 
     def __init__(self, parent=None):
