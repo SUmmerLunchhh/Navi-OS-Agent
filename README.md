@@ -17,22 +17,22 @@ Navi-OS-Agent/
 └── nav_config.json      # 配置文件
 ```
 # 获取构建版本 (Downloads)
-如果你不想在本地从源码运行，可以直接前往右侧的 Releases 页面，下载最新编译好的 Windows 独立压缩包（Navi-OS-Agent-Windows.zip），解压后即可直接双击运行！
+如果你不想在本地从源码运行，可以直接前往右侧的 Releases 页面，下载最新编译好的 Windows 独立压缩包（Navi-OS-Agent-Windows.zip），解压后即可直接双击exe文件运行。
 
 # 本地运行与开发
 如果你希望在本地运行或调试源码，请按以下步骤操作：
 
-克隆仓库：
+1.克隆仓库：
 
 ```Bash
 git clone [https://github.com/SUmmerLunchhh/Navi-OS-Agent.git](https://github.com/SUmmerLunchhh/Navi-OS-Agent.git)
 cd Navi-OS-Agent
-安装依赖：
 ```
+2.安装依赖：
 ```Bash
 pip install PyQt6 openai SpeechRecognition pyttsx3 pyinstaller
-运行程序：
 ```
+3.运行程序：
 ```Bash
 python main.py
 ```
