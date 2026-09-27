@@ -25,8 +25,7 @@ jobs:
       - name: 升级 pip 并安装项目依赖
         run: |
           python -m pip install --upgrade pip
-          pip install pyinstaller PyQt6 PyQt6-svg openai SpeechRecognition pyttsx3
-
+          pip install pyinstaller PyQt6 openai SpeechRecognition pyttsx3
       - name: 使用 PyInstaller 打包为独立文件夹
         run: |
           pyinstaller --noconsole --onedir --icon=Navi.ico --add-data "bg.png;." --add-data "ah3ha-80cp2.svg;." main.py
